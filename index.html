@@ -14,8 +14,7 @@
     <p>Hello World</p>
     <div id="surveyContainer"></div>
 </body>
-</html>
-
+<script>
 const surveyJson = {
     elements: [{
         name: "FirstName",
@@ -39,3 +38,5 @@ survey.onComplete.add(alertResults);
 document.addEventListener("DOMContentLoaded", function() {
     survey.render(document.getElementById("surveyContainer"));
 });
+</script>
+</html>
