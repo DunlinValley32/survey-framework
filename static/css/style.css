@@ -39,3 +39,14 @@
 .sd-matrix__question-wrapper .sd-checkbox__control {
   margin: 0 auto !important;
 }
+
+/* Limit survey width and keep it responsive */
+#surveyContainer,
+#surveyContainer .sv-root,
+#surveyContainer .sv-page {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}

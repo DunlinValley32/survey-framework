@@ -1,7 +1,10 @@
 const surveyJson = {
-    elements: [
+    pages: [
+      {
+        name: "Pollinator Observations",
+        elements: [
         {
-        name: "Region",
+        name: "loc",
         title: "Enter your community or region:",
         type: "text"
         }, 
@@ -50,6 +53,7 @@ const surveyJson = {
           "type": "matrixdropdown",
           "name": "seasobs",
           "title": "In which months do you see each pollinator?",
+          "description": "Please select all that apply.",
           "columns": [
             { 
               "name": "cryptic", 
@@ -101,25 +105,31 @@ const surveyJson = {
             }
           ],
             "rows": [
-               {
+              {
                  "value": "apr", 
-                 "text": "April" },
-               { 
+                 "text": "April"
+              },
+              { 
                 "value": "may", 
-                "text": "May" },
-               { 
+                "text": "May"
+              },
+              { 
                 "value": "jun", 
-                "text": "June" },
-               { 
+                "text": "June"
+              },
+              { 
                 "value": "jul", 
-                "text": "July" },
-               { 
+                "text": "July"
+              },
+              { 
                 "value": "aug", 
-                "text": "August" },
-               { 
+                "text": "August"
+              },
+              { 
                 "value": "other", 
-                "text": "Other", },
-            ]
+                "text": "Other",
+              },
+            ],
           },
           {
             "type": "comment",
@@ -129,21 +139,150 @@ const surveyJson = {
           },
           {
             "type": "boolean",
+            "name": "poll_id",
+            "title": "When you see a pollinator, can you usually identify it?",
+          }
+        ]
+      },
+      {
+        name: "Pollinator Names",
+        elements: [
+          {
+            "type": "boolean",
             "name": "poll_lang",
             "title": "Do any of the pollinators have a name in your language?",
           }, 
           {
-            "type": "comment",
-            "name" : "poll_lang_yes",
-            "visibleIf": "{poll_lang} = true",
-            "title": "Please list the Native names for any pollinators:",
+              "type": "matrixdynamic",
+              "name": "poll_names",
+              "visibleIf": "{poll_lang} = true",
+              "title": "Please select a pollinator and write its name in your language.",
+              "columns": [
+                {
+                  "name": "poll_select",
+                  "title": "Pollinator:",
+                  "cellType": "dropdown",
+                  "choices": [
+                    {
+                      "value": "forest",
+                      "text": "Forest Bumblebee"
+                    },
+                    {
+                      "value": "hummermoth",
+                      "text": "Hummingbird Moth"
+                    },
+                    {
+                      "value": "swallowtail",
+                      "text": "Swallowtail Butterfly"
+                    },
+                    {
+                      "value": "frittilary",
+                      "text": "Frittilary Butterfly"
+                    },
+                    {
+                      "value": "cryptic",
+                      "text": "Cryptic Bumblebee"
+                    },
+                    {
+                      "value": "syrphid",
+                      "text": "Syrphid Fly"
+                    }
+                  ],
+                  "showOtherItem": true,
+                  "otherPlaceholder": "Please list the other pollinator here"
+                },
+                {
+                  "name": "poll_name",
+                  "title": "Name in your language:",
+                  "cellType": "text"
+                }
+              ]
+          }
+        ]
+      },
+      {
+        name: "Plants & Changes",
+        elements: [
+          {
+            "type": "checkbox",
+            "name": "plants",
+            "title": "Where do you usually see the pollinators?",
+            "description": "Please select all that apply.",
+            "choices": [
+              {
+                "value": "berry",
+                "text": "Berry plants",
+              },
+              {
+                "value": "nat",
+                "text": "Other native plants",
+              },
+              {
+                "value": "nonnat",
+                "text": "Nonnative plants",
+              },
+              {
+                "value": "gard",
+                "text": "Planted flowers or gardens",
+              },
+            ],
+            "showOtherItem": true,
+            "otherPlaceholder": "List other plants or locations here",
+            "otherText": "Other (please describe)",
+            "showSelectAllItem": true,
+            "colCount": 2,
           },
           {
-            "type": "boolean",
-            "name": "poll_id",
-            "title": "When you see a pollinator, can you usually identify it?",
+            "type": "matrix",
+            "name": "pbdelta",
+            "title": "In the last 5 years, have you observed any changes in:",
+            "description": "Please select one in each row.",
+            "columns": [
+              {
+                "value": "nodelta",
+                "text": "No change"
+              },
+              {
+                "value": "somedelta",
+                "text": "Some change"
+              },
+              {
+                "value": "delta",
+                "text": "A lot of change"
+              },
+              {
+                "value": "idk",
+                "text": "I don't know"
+              }
+            ],
+            "rows": [
+              {
+                "value": "poll",
+                "text": "Pollinators"  
+              },
+              {
+                "value": "berry",
+                "text": "Berry Plants or Harvests"
+              },
+              {
+                "value": "rain",
+                "text": "Rainfall"
+              },
+              {
+                "value": "temp",
+                "text": "Summer Temperatures"
+              }
+            ],
+          },
+          {
+            "type": "text",
+            "name": "delta_text",
+            "visibleIf": "{pbdelta.poll} anyof ['somedelta', 'delta'] or {pbdelta.berry} anyof ['somedelta', 'delta'] or {pbdelta.rain} anyof ['somedelta', 'delta'] or {pbdelta.temp} anyof ['somedelta', 'delta'] ", 
+            "title": "Please describe the changes you have seen:",
           }
-      ]
+        ]
+      }
+    ]
 };
 
 const survey = new Survey.Model(surveyJson);
