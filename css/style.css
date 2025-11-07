@@ -1,0 +1,52 @@
+.sd-imagepicker__item .sd-imagepicker__image {
+  width: 150px !important;
+  height: 150px !important;
+  object-fit: cover !important;
+}
+
+/* Responsive Image Picker Styles */
+.sd-imagepicker__image {
+  width: 100% !important;
+  max-width: 150px !important;
+  height: auto !important;
+  aspect-ratio: 1 / 1;
+  object-fit: cover !important;
+  object-position: center center !important;
+  border-radius: 8px;
+}
+
+/* Responsive Grid for Image Picker */
+.sd-imagepicker {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+/* On very small screens, 2 images per row */
+@media (max-width: 500px) {
+  .sd-imagepicker {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Center checkboxes in pollinator calendar */
+.sd-matrix__question-wrapper fieldset.sd-selectbase {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.sd-matrix__question-wrapper .sd-checkbox__control {
+  margin: 0 auto !important;
+}
+
+/* Limit survey width and keep it responsive */
+#surveyContainer,
+#surveyContainer .sv-root,
+#surveyContainer .sv-page {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
