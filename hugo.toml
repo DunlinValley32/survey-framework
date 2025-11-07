@@ -1,6 +1,7 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://dunlinvalley32.github.io/survey-framework/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Survey Framework'
+canonifyURLs = true
 [caches]
   [caches.images]
     dir = ':cacheDir/images'

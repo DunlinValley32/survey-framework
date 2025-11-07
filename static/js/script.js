@@ -286,12 +286,22 @@ const surveyJson = {
 };
 
 const survey = new Survey.Model(surveyJson);
+survey.completedHtml = "<div class='thank-you'><h2>Thank you for your response!</h2><p>Your observations have been recorded.</p></div>";
 function alertResults (sender) {
     const results = JSON.stringify(sender.data);
     alert(results);
 }
-
-survey.onComplete.add(alertResults);
+// Submit data to Google Apps Script
+survey.onComplete.add(function (sender) {
+  fetch("https://script.google.com/macros/s/AKfycbwa8UmX0J1_TWIvqpq3XSFQ6_4qQCmc1UXQiDej-6urUXGaBpj7EY1ab5QRXObSXueHig/exec", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(sender.data),
+  })
+  .then(response => response.json())
+  .then(result => console.log("Survey submitted:", result))
+  .catch(error => console.error("Submission error:", error));
+});
 
 document.addEventListener("DOMContentLoaded", function() {
     survey.render(document.getElementById("surveyContainer"));
