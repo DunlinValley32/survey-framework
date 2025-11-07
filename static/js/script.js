@@ -293,7 +293,7 @@ function alertResults (sender) {
 }
 // Submit data to Google Apps Script
 survey.onComplete.add(function (sender) {
-  fetch("https://script.google.com/macros/s/AKfycbwJ3Y2PTMWZ2HZljB6R5hFUIFCQjHDdI6Xy9HY3FwDpSw78ww6eEgcLJGfDknj-h9u8Zw/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbx3PH_f5Gi3uOy-_P-QuSs9k9qmqRY74IanbWhi7iypoFXqa6IUnQ4u9WoCAR4PIfAqrg/exec", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(sender.data),
