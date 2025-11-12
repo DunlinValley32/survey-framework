@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = 'https://strong-sprinkles-dbf42e.netlify.app/'
 languageCode = 'en-us'
 title = 'Survey Framework'
 canonifyURLs = true
