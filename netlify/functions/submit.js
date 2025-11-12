@@ -1,5 +1,6 @@
 exports.handler = async (event) => {
   const data = JSON.parse(event.body);
+  console.log("Received submission:", data);
   const timestamp = new Date().toISOString();
   const fileName = `response-${timestamp}.json`;
 

@@ -293,10 +293,10 @@ function alertResults (sender) {
 }
 // Submit data to Google Apps Script
 survey.onComplete.add(function (sender) {
-  fetch("https://script.google.com/macros/s/AKfycbx3PH_f5Gi3uOy-_P-QuSs9k9qmqRY74IanbWhi7iypoFXqa6IUnQ4u9WoCAR4PIfAqrg/exec", {
+  fetch("https://strong-sprinkles-dbf42e.netlify.app/.netlify/functions/submit", {
     method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: formBody,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(sender.data),
   })
   .then(response => response.json())
   .then(result => console.log("Survey submitted:", result))
