@@ -2,6 +2,7 @@ const surveyJson = {
     pages: [
       {
         name: "Your Background",
+        title: "Your Background",
         elements: [
         {
         name: "comm",
@@ -38,6 +39,7 @@ const surveyJson = {
       },
       {
         name: "Your Interests in Pollinators",
+        title: "Your Interests in Pollinators",
         elements: [
         {
         "type": "matrix",
@@ -184,7 +186,8 @@ const surveyJson = {
         ],
       },
       {
-        name: "Your current work related to pollinator stewardship",
+        name: "current work",
+        title: "Your current work related to pollinator stewardship",
         elements: [
           {
             "type": "text",
@@ -205,13 +208,76 @@ const surveyJson = {
           {
             "type": "comment",
             "name": "partners",
-            "title": "4.	Who are your main partners in this work? (other Tribes/communities, Native orgs, non-Native orgs, universities, agencies)",
+            "title": "Who are your main partners in this work? (other Tribes/communities, Native orgs, non-Native orgs, universities, agencies)",
           },
           {
             "type": "comment",
             "name": "needs",
-            "title": "5.	What, if anything, do you need to support this work over the long-term?",
+            "title": "What, if anything, do you need to support this work over the long-term?",
           }
+        ]
+      }, 
+      {
+        name: "workshop",
+        title: "Interest in a Workshop",
+        description: "We intend to host a workshop in Fairbanks about pollinator stewardship across Alaska, focusing on knowledge-exchange, networking, and developing a pollinator stewardship plan for your community or organization (or building on the work you are doing already). The workshop will include cultural practices, identification and monitoring activities, and local site visits. Invitational travel, accommodations, and transportation will be provided.",
+        elements: [
+          {
+            "type": "boolean",
+            "name": "wkshp",
+            "title": "Would you be interested in coming to Fairbanks for an in-person workshop about pollinator stewardship and planning?",
+          },
+          {
+            "type": "checkbox",
+            "name": "avail",
+            "title": "What months in 2026 would you most likely be available to attend a 3-day workshop?",
+            "colCount" : 2,
+            "showNoneItem": true,
+            "showSelectAllItem": true,
+            "separateSpecialChoices": true,
+            "choices": [
+              {
+                "value": "jan",
+                "text": "January",
+              },
+              {
+                "value": "feb",
+                "text" : "February",
+              },
+              {
+                "value": "mar",
+                "text" : "March",
+              },
+              {
+                "value": "april",
+                "text" : "April",
+              },
+              {
+                "value": "may",
+                "text" : "May",
+              },
+              {
+                "value": "june",
+                "text" : "June",
+              },
+            ],
+          },
+          {
+           "type": "boolean",
+           "name": "planning",
+           "title": "Would you be interested in joining the workshop planning team? (meeting twice a month over Zoom)",   
+          },
+          {
+            "type": "text",
+            "name": "contact",
+            "title": "Please provide your best contact information for follow-up:",
+            "visibleIf": "{planning} = true",
+          },
+          {
+            "type": "text",
+            "name": "deleg",
+            "title": "We are hoping to invite delegations to attend the workshop and participate together. Who else from your community, region, or partners might be interested?",
+          },
         ]
       }
     ]
