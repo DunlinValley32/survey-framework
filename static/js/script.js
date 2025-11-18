@@ -43,7 +43,7 @@ const surveyJson = {
         "type": "matrix",
         "name": "familiarity",
         "title": "On a scale of 1-5, indicate your level of familiarity with the following groups of pollinating insects in Alaska:",
-        "columns=": [
+        "columns": [
           { 
             "value": "1", 
             "text": "Not familiar at all" 
