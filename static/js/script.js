@@ -44,11 +44,22 @@ const surveyJson = {
         "name": "familiarity",
         "title": "On a scale of 1-5, indicate your level of familiarity with the following groups of pollinating insects in Alaska:",
         "columns=": [
-          { "value": "1", "text": "Not familiar at all" },
-          { "value": "2", "text": "2" },
-          { "value": "3", "text": "3" },
-          { "value": "4", "text": "4" },
-          { "value": "5", "text": "Very familiar" },
+          { 
+            "value": "1", 
+            "text": "Not familiar at all" 
+          },
+          { "value": "2", 
+            "text": "2" 
+          },
+          { "value": "3", 
+            "text": "3" 
+          },
+          { "value": "4", 
+            "text": "4" 
+          },
+          { "value": "5", 
+            "text": "Very familiar" 
+          },
         ],
         "rows": [
           {
