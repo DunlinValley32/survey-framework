@@ -1,284 +1,204 @@
 const surveyJson = {
     pages: [
       {
-        name: "Pollinator Observations",
+        name: "Your Background",
         elements: [
         {
-        name: "loc",
-        title: "Enter your community or region:",
-        type: "text"
+        name: "comm",
+        title: "What community are you from?",
+        type: "text",
         }, 
         {
-        "type": "imagepicker",
-        "name": "pollobs",
-        "title": "Which of these pollinators have you seen?",
-        "description": "Please select all that apply.",
-        "isRequired": true,
-        "choices": [
-          {
-            "value": "cryptic",
-            "imageLink": "images/pollinators/cryptic.jpg",
-            "text": "Cryptic Bumblebee"
-          },
-          {
-            "value": "swallowtail",
-            "imageLink": "images/pollinators/swallowtail.jpeg",
-            "text": "Swallowtail Butterfly"
-          },
-          {
-            "value": "hummermoth",
-            "imageLink": "images/pollinators/hummer.jpeg",
-            "text": "Hummingbird Moth"
-          },
-          {
-            "value": "syrphid",
-            "imageLink": "images/pollinators/syrphid.jpeg",
-            "text": "Syrphid Fly"
-          },
-          {
-            "value": "forest",
-            "imageLink": "images/pollinators/forestbumb.jpeg",
-            "text": "Forest Bumblebee"
-          },
-          {
-            "value": "frittilary",
-            "imageLink": "images/pollinators/frittilary.jpg",
-            "text": "Frittilary Butterfly"
-          }
-        ],
-        "showLabel": true,
-        "multiSelect": true
+        name: "live",
+        title: "Where do you currently live?",
+        type: "text",
+        }, 
+        {
+        name: "natv",
+        title: "Are you Alaska Native?",
+        type: "boolean",
+        }, 
+        {
+          name: "cultgrp",
+          "visibleIf": "{natv} = true",
+          title: "If you are comfortable, please list your cultural group(s). (This will only be used to ensure we have adequate cultural representation for this survey and a future workshop).",
+          type: "text",
         },
         {
-          "type": "matrixdropdown",
-          "name": "seasobs",
-          "title": "In which months do you see each pollinator?",
-          "description": "Please select all that apply.",
-          "columns": [
-            { 
-              "name": "cryptic", 
-              "title": "Cryptic Bumblebee", 
-              "cellType": "checkbox",
-              "choices": [""],
-              "showLabel": false,
-              "visibleIf": "{pollobs} contains 'cryptic'"
+          name: "org",
+          title: "What organization do you work for?",
+          type: "text",
+        },
+        {
+          name: "pos",
+          title: "What is your title/position?",
+          type: "text",
+        },
+        ],
+      },
+      {
+        name: "Your Interests in Pollinators",
+        elements: [
+        {
+        "type": "matrix",
+        "name": "familiarity",
+        "title": "On a scale of 1-5, indicate your level of familiarity with the following groups of pollinating insects in Alaska:",
+        "columns=": [
+          { "value": "1", "text": "Not familiar at all" },
+          { "value": "2", "text": "2" },
+          { "value": "3", "text": "3" },
+          { "value": "4", "text": "4" },
+          { "value": "5", "text": "Very familiar" },
+        ],
+        "rows": [
+          {
+            "value": "bumblebees",
+            "text": "Bumblebees",
+          },
+          {
+            "value": "otherbees",
+            "text": "Other Bees",
+          },
+          {
+            "value": "butterflies",
+            "text": "Butterflies",
+          },
+          {
+            "value": "moths",
+            "text": "Moths",
+          },
+          {
+            "value": "flies",
+            "text": "Flies",
+          },
+          {
+            "value": "wasp",
+            "text": "Wasps",
+          },
+          {
+            "value": "beetles",
+            "text": "Beetles",
+          },
+        ],
+        },
+        {
+          "type": "checkbox",
+          "name": "knowl",
+          "title": "Which topics related to pollinators do you know something about?",
+          "choices": [
+            {
+              "value":"pollid",
+              "text": "Pollinator Identification & Monitoring",
             },
-            { 
-              "name": "swallowtail", 
-              "title": "Swallowtail Butterfly",
-              "cellType": "checkbox",
-              "choices": [""],
-              "showLabel": false,
-              "visibleIf": "{pollobs} contains 'swallowtail'"
+            {
+              "value": "pollecol",
+              "text": "Pollinator Ecology/Natural History",
             },
-            { 
-              "name": "hummermoth", 
-              "title": "Hummingbird Moth",
-              "cellType": "checkbox",
-              "choices": [""],
-              "showLabel": false,
-              "visibleIf": "{pollobs} contains 'hummermoth'"
+            {
+              "value": "protect",
+              "text": "Protecting at-risk or Endangered Species",
             },
-            { 
-              "name": "syrphid", 
-              "title": "Syrphid Fly",
-              "cellType": "checkbox",
-              "choices": [""],
-              "showLabel": false,
-              "visibleIf": "{pollobs} contains 'syrphid'"
+            {
+              "value": "habitat",
+              "text": "Pollinator Habitat",
             },
-            { 
-              "name": "forest", 
-              "title": "Forest Bumblebee",
-              "cellType": "checkbox",
-              "choices": [""],
-              "showLabel": false,
-              "visibleIf": "{pollobs} contains 'forest'"
-            }, 
-            { 
-              "name": "frittilary", 
-              "title": "Frittilary Butterfly",
-              "cellType": "checkbox",
-              "choices": [""],
-              "showLabel": false,
-              "visibleIf": "{pollobs} contains 'frittilary'"
-            }
+            {
+              "value": "foods",
+              "text": "Pollination of berry plants and other traditional foods",
+            },
+            {
+              "value": "steward",
+              "text": "How to steward pollinators in gardens, farms, food forests",
+            },
+            {
+              "value": "tk",
+              "text": "Traditional Knowledge of pollinators",
+            },
           ],
-            "rows": [
-              {
-                 "value": "apr", 
-                 "text": "April"
-              },
-              { 
-                "value": "may", 
-                "text": "May"
-              },
-              { 
-                "value": "jun", 
-                "text": "June"
-              },
-              { 
-                "value": "jul", 
-                "text": "July"
-              },
-              { 
-                "value": "aug", 
-                "text": "August"
-              },
-              { 
-                "value": "other", 
-                "text": "Other",
-              },
-            ],
+           "showOtherItem": true,
+            "otherPlaceholder": "List other topics here",
+            "otherText": "Other (please describe)",
+            "showSelectAllItem": true,
+        },
+           {
+          "type": "checkbox",
+          "name": "learn",
+          "title": "Which topics related to pollinators do you want to learn more about?",
+          "choices": [
+            {
+              "value":"pollid",
+              "text": "Pollinator Identification & Monitoring",
+            },
+            {
+              "value": "pollecol",
+              "text": "Pollinator Ecology/Natural History",
+            },
+            {
+              "value": "protect",
+              "text": "Protecting at-risk or Endangered Species",
+            },
+            {
+              "value": "habitat",
+              "text": "Pollinator Habitat",
+            },
+            {
+              "value": "foods",
+              "text": "Pollination of berry plants and other traditional foods",
+            },
+            {
+              "value": "steward",
+              "text": "How to steward pollinators in gardens, farms, food forests",
+            },
+            {
+              "value": "tk",
+              "text": "Traditional Knowledge of pollinators",
+            },
+          ],
+           "showOtherItem": true,
+            "otherPlaceholder": "List other topics here",
+            "otherText": "Other (please describe)",
+            "showSelectAllItem": true,
+        },
+        {
+          "type": "text",
+          "name": "platpoll",
+          "title": "Would you like to know the pollinators of any specific plants? (If so, please list the plant names)",
+        },
+        {
+          "type": "text",
+          "name": "specpoll",
+          "title": "5.	Would you like to know about any specific pollinators? (Please describe)",
+        },
+        ],
+      },
+      {
+        name: "Your current work related to pollinator stewardship",
+        elements: [
+          {
+            "type": "text",
+            "name": "goals",
+            "title": "1.	What are your main goals related to pollinator stewardship?",
+          }, 
+          {
+              "type": "boolean",
+              "name": "efforts",
+              "title": "Are you currently working on anything related to pollinators or their stewardship? (examples include agriculture, food forests, medicinal gardens, habitat restoration, monitoring, Traditional foods, Traditional Knowledge, language revitalization, research and monitoring)",
           },
           {
             "type": "comment",
-            "name": "seasobs_text",
-            "visibleIf": "{seasobs.other} notempty",
-            "title": "You selected \"Other.\" Please describe the pollinator and season or month observed:",
+            "name": "workdescribe",
+            "title":"Please tell us a little more about your work:",
+            "visibleIf": "{efforts} = true",  
           },
           {
-            "type": "boolean",
-            "name": "poll_id",
-            "title": "When you see a pollinator, can you usually identify it?",
-          }
-        ]
-      },
-      {
-        name: "Pollinator Names",
-        elements: [
-          {
-            "type": "boolean",
-            "name": "poll_lang",
-            "title": "Do any of the pollinators have a name in your language?",
-          }, 
-          {
-              "type": "matrixdynamic",
-              "name": "poll_names",
-              "visibleIf": "{poll_lang} = true",
-              "title": "Please select a pollinator and write its name in your language.",
-              "columns": [
-                {
-                  "name": "poll_select",
-                  "title": "Pollinator:",
-                  "cellType": "dropdown",
-                  "choices": [
-                    {
-                      "value": "forest",
-                      "text": "Forest Bumblebee"
-                    },
-                    {
-                      "value": "hummermoth",
-                      "text": "Hummingbird Moth"
-                    },
-                    {
-                      "value": "swallowtail",
-                      "text": "Swallowtail Butterfly"
-                    },
-                    {
-                      "value": "frittilary",
-                      "text": "Frittilary Butterfly"
-                    },
-                    {
-                      "value": "cryptic",
-                      "text": "Cryptic Bumblebee"
-                    },
-                    {
-                      "value": "syrphid",
-                      "text": "Syrphid Fly"
-                    }
-                  ],
-                  "showOtherItem": true,
-                  "otherPlaceholder": "Please list the other pollinator here"
-                },
-                {
-                  "name": "poll_name",
-                  "title": "Name in your language:",
-                  "cellType": "text"
-                }
-              ]
-          }
-        ]
-      },
-      {
-        name: "Plants & Changes",
-        elements: [
-          {
-            "type": "checkbox",
-            "name": "plants",
-            "title": "Where do you usually see the pollinators?",
-            "description": "Please select all that apply.",
-            "choices": [
-              {
-                "value": "berry",
-                "text": "Berry plants",
-              },
-              {
-                "value": "nat",
-                "text": "Other native plants",
-              },
-              {
-                "value": "nonnat",
-                "text": "Nonnative plants",
-              },
-              {
-                "value": "gard",
-                "text": "Planted flowers or gardens",
-              },
-            ],
-            "showOtherItem": true,
-            "otherPlaceholder": "List other plants or locations here",
-            "otherText": "Other (please describe)",
-            "showSelectAllItem": true,
-            "colCount": 2,
+            "type": "comment",
+            "name": "partners",
+            "title": "4.	Who are your main partners in this work? (other Tribes/communities, Native orgs, non-Native orgs, universities, agencies)",
           },
           {
-            "type": "matrix",
-            "name": "pbdelta",
-            "title": "In the last 5 years, have you observed any changes in:",
-            "description": "Please select one in each row.",
-            "columns": [
-              {
-                "value": "nodelta",
-                "text": "No change"
-              },
-              {
-                "value": "somedelta",
-                "text": "Some change"
-              },
-              {
-                "value": "delta",
-                "text": "A lot of change"
-              },
-              {
-                "value": "idk",
-                "text": "I don't know"
-              }
-            ],
-            "rows": [
-              {
-                "value": "poll",
-                "text": "Pollinators"  
-              },
-              {
-                "value": "berry",
-                "text": "Berry Plants or Harvests"
-              },
-              {
-                "value": "rain",
-                "text": "Rainfall"
-              },
-              {
-                "value": "temp",
-                "text": "Summer Temperatures"
-              }
-            ],
-          },
-          {
-            "type": "text",
-            "name": "delta_text",
-            "visibleIf": "{pbdelta.poll} anyof ['somedelta', 'delta'] or {pbdelta.berry} anyof ['somedelta', 'delta'] or {pbdelta.rain} anyof ['somedelta', 'delta'] or {pbdelta.temp} anyof ['somedelta', 'delta'] ", 
-            "title": "Please describe the changes you have seen:",
+            "type": "comment",
+            "name": "needs",
+            "title": "5.	What, if anything, do you need to support this work over the long-term?",
           }
         ]
       }
