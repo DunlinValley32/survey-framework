@@ -181,7 +181,7 @@ const surveyJson = {
         {
           "type": "text",
           "name": "specpoll",
-          "title": "5.	Would you like to know about any specific pollinators? (Please describe)",
+          "title": "Would you like to know about any specific pollinators? (Please describe)",
         },
         ],
       },
@@ -192,7 +192,7 @@ const surveyJson = {
           {
             "type": "text",
             "name": "goals",
-            "title": "1.	What are your main goals related to pollinator stewardship?",
+            "title": "What are your main goals related to pollinator stewardship?",
           }, 
           {
               "type": "boolean",
